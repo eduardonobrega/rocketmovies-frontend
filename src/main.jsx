@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { Details } from './pages/Details'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <h1>Hello word!</h1>
+    <Details/>
   </React.StrictMode>,
 )
