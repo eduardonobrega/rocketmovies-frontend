@@ -52,7 +52,7 @@ export function Details() {
               precisa sobreviver ao ensino fundamental primeiro. Como detalhes
               de suas hilárias, e muitas vezes desastrosas tentativas de
               preencher as páginas de seu diário, Greg aprende a apreciar os
-              verdadeiros amigos e a satisfação de defender o que é certo
+              verdadeiros amigos e a satisfação de defender o que é certo.
             </p>
           </article>
         </Content>
