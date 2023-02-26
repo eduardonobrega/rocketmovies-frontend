@@ -1,5 +1,7 @@
 import { Container, Profile } from './styles';
 
+import { Input } from '../Input';
+
 export function Header() {
   return (
     <Container>
@@ -7,15 +9,18 @@ export function Header() {
         <h1>RocketMovies</h1>
       </a>
 
-      {/* <Input type="search" placeholder="Pesquisar pelo título" {...props} /> */}
+      <Input type="search" placeholder="Pesquisar pelo título"  />
 
       <Profile>
         <div>
           <p>Eduardo Nóbrega</p>
-          <button >Sair</button>
+          <button>Sair</button>
         </div>
 
-        <img src="https://github.com/eduardonobrega.png" alt={`Foto de perfil de Eduardo`} />
+        <img
+          src="https://github.com/eduardonobrega.png"
+          alt={`Foto de perfil de Eduardo`}
+        />
       </Profile>
     </Container>
   );
