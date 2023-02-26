@@ -4,7 +4,8 @@ import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
 import { Input } from '../../components/Input';
 import { TextArea } from '../../components/TextArea';
-import {Section} from '../../components/Section'
+import { Section } from '../../components/Section';
+import { NoteItem } from '../../components/NoteItem';
 // import {} from '../../components'
 
 import { Container, Content, Form } from './styles';
@@ -36,18 +37,9 @@ export function New() {
             <TextArea placeholder="Observações" />
 
             <Section title="Marcadores">
-            {/* <NoteItem
-                  key={String(index)}
-                  value={tag}
-                  onClick={() => handleRemoveTag(tag)}
-                />
+              <NoteItem value="React" />
 
-              <NoteItem
-                isNew
-                value={newTag}
-                onChange={(e) => setNewTag(e.target.value)}
-                onClick={handleAddTag}
-              /> */}
+              <NoteItem isNew />
             </Section>
 
             <div className="twoColumns">

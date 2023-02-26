@@ -26,6 +26,9 @@ export const Container = styled.section`
         display: flex;
         justify-content: space-between;
         margin-bottom: 2rem;
+        >input {
+          width: 100%;
+        }
       }
 
       button {
