@@ -26,4 +26,47 @@ export const Container = styled.header`
   }
 `;
 
-export const Profile = styled.div``;
+export const Profile = styled.div`
+  justify-self: end;
+
+  display: flex;
+  gap: 0.9rem;
+
+  cursor: pointer;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  > img {
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 50%;
+    border: 1px solid ${({ theme }) => theme.COLORS.GRAY_700};
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 1.4rem;
+
+    p {
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      font-weight: 700;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme.COLORS.GRAY_800};
+      font-weight: 400;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+  }
+`;
