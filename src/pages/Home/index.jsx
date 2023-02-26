@@ -1,4 +1,6 @@
 import { FiPlus } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
@@ -19,10 +21,10 @@ export function Home() {
           <option value="Aventura">Aventura</option>
         </select>
 
-        <a to="/new">
+        <Link to="/new">
           <Button className="desktop" icon={FiPlus} title="Adicionar filme" />
           <Button className="mobile" icon={FiPlus} />
-        </a>
+        </Link>
       </div>
 
       <main>

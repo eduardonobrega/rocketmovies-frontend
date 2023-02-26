@@ -1,17 +1,28 @@
 import { Container, Profile } from './styles';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Input } from '../Input';
 
 export function Header({ ...props }) {
+  const navigate = useNavigate();
+
+  function handleProfile(element) {
+    if (element == 'Sair') {
+      navigate('/');
+    } else {
+      navigate('/profile');
+    }
+  }
+
   return (
     <Container>
-      <a href="#">
+      <Link to={-1}>
         <h1>RocketMovies</h1>
-      </a>
+      </Link>
 
       <Input type="search" placeholder="Pesquisar pelo título" {...props} />
 
-      <Profile>
+      <Profile onClick={(e) => handleProfile(e.target.textContent)}>
         <div>
           <p>Eduardo Nóbrega</p>
           <button>Sair</button>

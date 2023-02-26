@@ -1,4 +1,6 @@
 import { FiArrowLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 
 import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
@@ -15,9 +17,9 @@ export function New() {
     <Container>
       <Header readOnly />
 
-      <a>
+      <Link to={-1}>
         <ButtonText text="Voltar" icon={FiArrowLeft} />
-      </a>
+      </Link>
       <main>
         <Content>
           <h1>Novo filme</h1>

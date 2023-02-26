@@ -1,4 +1,6 @@
 import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 
 import { Container, Background, Form } from './styles';
 
@@ -38,9 +40,9 @@ export function SignUp() {
 
           <Button title="Cadastrar"  />
 
-          <a to={-1}>
+          <Link to={-1}>
             <ButtonText text="Voltar para o login" icon={FiArrowLeft} />
-          </a>
+          </Link>
         </Form>
       </main>
     </Container>
