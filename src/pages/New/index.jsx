@@ -6,7 +6,7 @@ import { Input } from '../../components/Input';
 import { TextArea } from '../../components/TextArea';
 import { Section } from '../../components/Section';
 import { NoteItem } from '../../components/NoteItem';
-// import {} from '../../components'
+import {Button} from '../../components/Button'
 
 import { Container, Content, Form } from './styles';
 
@@ -43,8 +43,8 @@ export function New() {
             </Section>
 
             <div className="twoColumns">
-              {/* <Button title="Limpar" onClick={clearNote} /> */}
-              {/* <Button title="Salvar alterações" onClick={addNote} /> */}
+              <Button title="Limpar" />
+              <Button title="Salvar alterações" />
             </div>
           </Form>
         </Content>
