@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import { api } from '../../services/api';
 
 import { ButtonText } from '../../components/ButtonText';
 import { Input } from '../../components/Input';
@@ -17,6 +19,11 @@ export function Profile() {
   const [email, setEmail] = useState(user.email);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  const [avatar, setAvatar] = useState(avatarUrl);
+  const [avatarFile, setAvatarFile] = useState(null);
 
   async function handleUpdateProfile() {
     if (!name || !email) {
@@ -35,7 +42,16 @@ export function Profile() {
 
     const userUpdated = Object.assign(user, updated);
 
-    await updateProfile({ user: userUpdated });
+    await updateProfile({ user: userUpdated, avatarFile });
+  }
+
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0];
+
+    setAvatarFile(file);
+
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
   }
 
   return (
@@ -49,14 +65,14 @@ export function Profile() {
       <Form>
         <Avatar>
           <img
-            src="https://github.com/eduardonobrega.png"
+            src={avatar}
             alt={`Foto de perfil de ${user.name}`}
           />
 
           <label htmlFor="avatar">
             <FiCamera />
 
-            <input type="file" id="avatar" className="sr-only" />
+            <input type="file" id="avatar" className="sr-only" onChange={handleChangeAvatar}/>
           </label>
         </Avatar>
 
