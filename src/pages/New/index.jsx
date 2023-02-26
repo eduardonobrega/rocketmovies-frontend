@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { ButtonText } from '../../components/ButtonText';
 import { Input } from '../../components/Input';
 import { TextArea } from '../../components/TextArea';
+import {Section} from '../../components/Section'
 // import {} from '../../components'
 
 import { Container, Content, Form } from './styles';
@@ -34,7 +35,7 @@ export function New() {
 
             <TextArea placeholder="Observações" />
 
-            {/* <Section title="Marcadores"> */}
+            <Section title="Marcadores">
             {/* <NoteItem
                   key={String(index)}
                   value={tag}
@@ -47,7 +48,7 @@ export function New() {
                 onChange={(e) => setNewTag(e.target.value)}
                 onClick={handleAddTag}
               /> */}
-            {/* </Section> */}
+            </Section>
 
             <div className="twoColumns">
               {/* <Button title="Limpar" onClick={clearNote} /> */}
