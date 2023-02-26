@@ -17,13 +17,6 @@ export default createGlobalStyle`
     font: inherit;
   }
   
-  img,
-  picture,
-  svg,
-  video {
-    display: block;
-    max-width: 100%;
-  }
   
   body,
   input,
@@ -54,5 +47,28 @@ export default createGlobalStyle`
     filter: brightness(.9);
   }
   
-  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: .8rem;
+    background-color: ${({ theme }) => theme.COLORS.PINK_900};
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 `;
