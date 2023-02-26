@@ -7,7 +7,11 @@ const AuthContext = createContext({});
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
 
-  
+  async function signOut() {
+    localStorage.removeItem('@rocketmovies:user');
+    localStorage.removeItem('@rocketmovies:token');
+    setData({});
+  }
 
   async function signIn({ email, password }) {
     try {
@@ -43,7 +47,7 @@ function AuthProvider({ children }) {
     }
   }, []);
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
       {children}
     </AuthContext.Provider>
   );

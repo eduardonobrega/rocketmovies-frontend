@@ -1,14 +1,19 @@
 import { Container, Profile } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Input } from '../Input';
 
 export function Header({ ...props }) {
+  const { signOut } = useAuth();
+
   const navigate = useNavigate();
 
   function handleProfile(element) {
     if (element == 'Sair') {
-      navigate('/');
+      signOut();
+      navigate(-1);
     } else {
       navigate('/profile');
     }

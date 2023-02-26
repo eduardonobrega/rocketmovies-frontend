@@ -3,6 +3,7 @@ import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -13,6 +14,8 @@ export function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { signIn } = useAuth();
 
   const navigate = useNavigate();
 
@@ -25,7 +28,8 @@ export function SignUp() {
       await api.post('/users', { name, email, password });
 
       alert('Cadastro realizado com sucesso');
-      navigate('/');
+      await signIn({ email, password });
+      navigate(-1);
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
