@@ -19,7 +19,7 @@ export function Header({ ...props }) {
   function handleProfile(element) {
     if (element == 'Sair') {
       signOut();
-      navigate(-1);
+      navigate('/');
     } else {
       navigate('/profile');
     }
