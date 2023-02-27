@@ -27,7 +27,7 @@ export function Header({ ...props }) {
 
   return (
     <Container>
-      <Link to={-1}>
+      <Link to="/">
         <h1>RocketMovies</h1>
       </Link>
 
