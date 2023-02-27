@@ -1,5 +1,5 @@
 import { FiPlus } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { api } from '../../services/api';
@@ -11,7 +11,27 @@ import { Note } from '../../components/Note';
 import { Container, Content } from './styles';
 
 export function Home() {
+  const [notes, setNotes] = useState([]);
   const [tags, setTags] = useState([]);
+  const [search, setSearch] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
+
+  const navigate = useNavigate();
+
+  function handleDetails(noteId) {
+    navigate(`/details/${noteId}`);
+  }
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get(
+        `/notes?title=${search}&tags=${selectedTag}`
+      );
+      setNotes(response.data);
+    }
+
+    fetchNotes();
+  }, [search, selectedTag]);
 
   useEffect(() => {
     async function fetchTags() {
@@ -20,19 +40,21 @@ export function Home() {
     }
     fetchTags();
   }, []);
+
   return (
     <Container>
-      <Header />
+      <Header onChange={(e) => setSearch(e.target.value)} />
       <div>
         <h1>Meus filmes</h1>
 
-        <select>
-          <option value="all">Todos</option>
-          {tags.map((tag) => (
-            <option key={tag.id} value={tag.name}>
-              {tag.name}
-            </option>
-          ))}
+        <select onChange={(e) => setSelectedTag(e.target.value)}>
+          <option value="">Todos</option>
+          {tags &&
+            tags.map((tag) => (
+              <option key={String(tag.id)} value={tag.name}>
+                {tag.name}
+              </option>
+            ))}
         </select>
 
         <Link to="/new">
@@ -43,15 +65,13 @@ export function Home() {
 
       <main>
         <Content>
-          <Note
-            note={{
-              title: '1408',
-              rating: 5,
-              description:
-                'Um promissor romancista, Mike Enslin (John Cusack), resolveu enveredar por outro caminho e escrever livros que investiguem fenômenos paranormais. Enslin nunca presenciou realmente algum destes fatos, então fica difícil obter credibilidade. Além do mais Mike é totalmente cético, pois até hoje não encontrou evidências de que exista vida após a morte. No entanto decide ir até Nova York e se hospedar no Dolphin Hotel, mais exatamente no quarto 1408, que tem fama de ser habitado por espíritos malignos. O gerente do hotel, Gerald Olin (Samuel L. Jackson), o avisa que 56 mortes já ocorreram neste quarto, mas Mike está decidido a conferir se sua fama está condizente com a verdade.',
-              tags: [{ id: 1, name: 'Terror' }],
-            }}
-          />
+          {notes.map((note) => (
+            <Note
+              key={String(note.id)}
+              note={note}
+              onClick={() => handleDetails(note.id)}
+            />
+          ))}
         </Content>
       </main>
     </Container>

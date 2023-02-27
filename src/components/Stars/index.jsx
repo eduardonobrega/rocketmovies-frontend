@@ -9,13 +9,13 @@ export function Stars({ rating }) {
       {myArray.map((e, index) => {
         if (index + 1 <= rating) {
           return (
-            <li key={index} className="bg">
+            <li key={String(index)} className="bg">
               <FiStar />
             </li>
           );
         } else {
           return (
-            <li key={index}>
+            <li key={String(index)}>
               <FiStar />
             </li>
           );

@@ -122,7 +122,7 @@ export function New() {
             <Section title="Marcadores">
               {tags.map((tag, index) => (
                 <NoteItem
-                  key={index}
+                  key={String(index)}
                   value={tag}
                   onClick={(e) => handleRemoveTag(tag)}
                 />
