@@ -89,7 +89,7 @@ export const Content = styled.div`
     }
   }
 
-  > div {
+  > div:not(:empty) {
     max-width: 100%;
     overflow: auto;
     height: 4rem;
