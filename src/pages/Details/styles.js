@@ -89,6 +89,15 @@ export const Content = styled.div`
     }
   }
 
+  > div {
+    max-width: 100%;
+    overflow: auto;
+    height: 4rem;
+    ::-webkit-scrollbar {
+      height: 5px;
+    }
+  }
+
   > article {
     margin-top: 4rem;
 

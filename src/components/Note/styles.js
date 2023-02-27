@@ -7,7 +7,6 @@ export const Container = styled.button`
   outline: none;
   border-radius: 1.6rem;
 
-  
   padding: clamp(1.2rem, -0.8rem + 6.25vw, 3.2rem);
   margin-bottom: clamp(1.4rem, 0.4rem + 3.125vw, 2.4rem);
 
@@ -47,6 +46,7 @@ export const Container = styled.button`
     display: inline-block;
     background-color: #312e38;
     color: #e5e5e5;
+    margin-top: 0.8rem;
   }
 
   @media (max-width: 400px) {
@@ -57,6 +57,7 @@ export const Container = styled.button`
     .tags > span {
       width: 100%;
       margin-bottom: 1rem;
+      margin-top: 0;
     }
   }
 `;
